@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# VS Code
+settings.json
+
+# dataset
+gtsrb-german-traffic-sign/*
+gtsrb-german-traffic-sign.zip
