@@ -6,6 +6,7 @@ class Classifier(nn.Module):
     def __init__(self):
         super(Classifier, self).__init__()
 
+        self.name = 'classifier'
         # [48, 48, 3] => [40, 40, 50]
         self.conv1 = nn.Conv2d(3, 50, 9)
 
