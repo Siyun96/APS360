@@ -156,6 +156,8 @@ def train_net(net, batch_size, learning_rate, num_epochs, sample_interval):
     elapsed_time = end_time - start_time
     print('Total time elapse: {:.2f} seconds'.format(elapsed_time))
 
+    return train_batch
+
 
 def plot_training_curve(model_path):
     # Get batch count
@@ -172,6 +174,7 @@ def plot_training_curve(model_path):
     plt.legend(loc='best')
     plt.savefig("%s_accuracy.png" % model_path)
 
+    plt.clf()
     # Plot loss
     train_loss = np.loadtxt("{}_train_loss.csv".format(model_path))
     plt.plot(iteration, train_loss, label='Train')
@@ -189,19 +192,42 @@ if __name__ == "__main__":
     parser.add_argument('--num_epochs', '-n', type=int, default=20, help="number of epochs for training")
     parser.add_argument('--batch_size', '-bs', type=int, default=32, help="batch size")
     parser.add_argument('--learning_rate', '-lr', type=float, default=0.001, help="Adam optimizer learning rate")
-    parser.add_argument('--sample_interval', type=int, default=50, help="Save statistics and model checkpoint every N epochs")
+    parser.add_argument('--sample_interval', type=int, default=1000, help="Save statistics and model checkpoint every N epochs")
+    parser.add_argument('--cnn', default='classifier', nargs='*', help="Specify the model architecture", required=True)
     args = parser.parse_args()
 
     # Define model
-    model = Classifier()
+    if args.cnn[0] == 'classifier':
+        if len(args.cnn) == 1:
+            model = Classifier()
+        else:
+            model = Classifier(args.cnn[1], args.cnn[2], args.cnn[3], args.cnn[4], args.cnn[5])
+    elif args.cnn[0] == 'a':
+        if len(args.cnn) == 1:
+            model = ModelA()
+        else:
+            model = ModelA(args.cnn[1], args.cnn[2], args.cnn[3], args.cnn[4], args.cnn[5])
+    elif args.cnn[0] == 'b':
+        if len(args.cnn) == 1:
+            model = ModelB()
+        else:
+            model = ModelB(args.cnn[1], args.cnn[2], args.cnn[3], args.cnn[4])
+    elif args.cnn[0] == 'c':
+        if len(args.cnn) == 1:
+            model = ModelC()
+        else:
+            model = ModelC(args.cnn[1], args.cnn[2], args.cnn[3], args.cnn[4], args.cnn[5], args.cnn[6])
+    else:
+        print("Unsupported") 
+        assert(0)
 
     if cuda:
         model = model.cuda()
     
     # Train model
-    train_net(model, args.batch_size, args.learning_rate, args.num_epochs, args.sample_interval)
+    max_iter = train_net(model, args.batch_size, args.learning_rate, args.num_epochs, args.sample_interval)
 
     # Plot training curves
-    model_path = get_model_name(model.name, args.batch_size, args.learning_rate, args.num_epochs, args.sample_interval)
+    model_path = get_model_name(model.name, args.batch_size, args.learning_rate, args.num_epochs, max_iter)
     plot_training_curve(model_path)
 

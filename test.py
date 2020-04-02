@@ -16,7 +16,7 @@ experiment = os.path.join(os.getcwd(), 'experiment')
 
 def get_test_loader():
     # transform settings
-    transform = transforms.Compose([transforms.Resize((48, 48)), transforms.ToTensor])
+    transform = transforms.Compose([transforms.Resize((48, 48)), transforms.ToTensor()])
 
     # set random seeds
     np.random.seed(RANDOM_SEED)
@@ -50,16 +50,22 @@ def get_test_accuracy(net, loader):
     return correct
 
 
+def get_model_name(name, batch_size, learning_rate, epoch, batch_count):
+    path = 'model_{0}_bs{1}_lr{2}_epoch{3}_iter{4}'.format(name, batch_size, learning_rate, epoch, batch_count)
+    return os.path.join(experiment, path)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--num_epochs', '-n', type=int, default=20, help="number of epochs for training")
     parser.add_argument('--batch_size', '-bs', type=int, default=32, help="batch size")
     parser.add_argument('--learning_rate', '-lr', type=float, default=0.001, help="Adam optimizer learning rate")
+    parser.add_argument('--max_iter', type=int, help="maximum number of iterations per epoch")
     args = parser.parse_args()
 
     # Define model
     model = Classifier()
-    model_path = get_model_name(model.name, args.batch_size, args.learning_rate, args.num_epochs)
+    model_path = get_model_name(model.name, args.batch_size, args.learning_rate, args.num_epochs, args.max_iter)
     pretrained_dict = torch.load(model_path)
     model.load_state_dict(pretrained_dict)
 

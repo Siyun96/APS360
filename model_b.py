@@ -2,11 +2,12 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-class Classifier(nn.Module):
-    def __init__(self, feature1=50, feature2=100, feature3=100, hidden1=200, hidden2=100):
-        super(Classifier, self).__init__()
+## Remove one FC layer
+class ModelB(nn.Module):
+    def __init__(self, feature1=50, feature2=100, feature3=100, hidden1=200):
+        super(ModelB, self).__init__()
 
-        self.name = 'classifier'
+        self.name = 'b'
         # [48, 48, 3] => [40, 40, 50]
         self.conv1 = nn.Conv2d(3, feature1, 9)
 
@@ -25,8 +26,7 @@ class Classifier(nn.Module):
         self.conv3 = nn.Conv2d(feature2, feature3, 3)
 
         self.fc1 = nn.Linear(6 * 6 * feature3 + 16 * 16 * feature2, hidden1)
-        self.fc2 = nn.Linear(hidden1, hidden2)
-        self.fc3 = nn.Linear(hidden2, 24)
+        self.fc2 = nn.Linear(hidden1, 24)
 
         self.feature2 = feature2
         self.feature3 = feature3
@@ -43,6 +43,5 @@ class Classifier(nn.Module):
         x = torch.cat((x, temp), 1)            # double check, should be dimension 1
 
         x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        x = self.fc3(x)
+        x = self.fc2(x)
         return x
