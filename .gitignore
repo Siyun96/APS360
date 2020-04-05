@@ -144,3 +144,8 @@ cleaned-dataset.zip
 # experiments
 experiment/
 model_classifier_*
+experiment*
+misclassified*
+
+# includes
+!experiment_notes.txt

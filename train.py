@@ -11,8 +11,13 @@ from torch.utils.data.sampler import SubsetRandomSampler
 import torchvision.transforms as transforms
 import matplotlib.pyplot as plt # for plotting
 
-# import model
+# import models
 from classifier import Classifier
+from model_a import ModelA
+from model_b import ModelB
+from model_c import ModelC
+from model_d import ModelD
+from final_model import FinalModel
 
 # global variables
 RANDOM_SEED = 1000
@@ -77,7 +82,7 @@ def evaluate(net, loader, criterion):
     return correct, loss
 
 
-def train_net(net, batch_size, learning_rate, num_epochs, sample_interval):
+def train_net(net, batch_size, learning_rate, num_epochs, sample_interval, extra_path=None):
     # Fix random seed
     np.random.seed(RANDOM_SEED)
     torch.manual_seed(RANDOM_SEED)
@@ -96,6 +101,7 @@ def train_net(net, batch_size, learning_rate, num_epochs, sample_interval):
     start_time = time.time()
     total_batch_counter = 0
     for epoch in range(num_epochs):
+        print("Running epoch %d" % epoch)
         training_loss_per_epoch = 0
         train_batch = 0
         train_correct = 0
@@ -141,14 +147,19 @@ def train_net(net, batch_size, learning_rate, num_epochs, sample_interval):
 
                 ## Save model (checkpoint)
                 model_path = get_model_name(net.name, batch_size, learning_rate, epoch+1, train_batch)
-                torch.save(net.state_dict(), model_path)
+                if extra_path is not None:
+                    model_path = model_path + extra_path
+
+                if train_batch % (sample_interval*5) == 0 or train_batch == len(train_loader) - 1:
+                    torch.save(net.state_dict(), model_path)
         
         # Write the training/validation accuracy/loss into CSV file for plotting later
-        np.savetxt("{}_train_accuracy.csv".format(model_path), train_acc)
-        np.savetxt("{}_train_loss.csv".format(model_path), train_loss)
-        np.savetxt("{}_valid_accuracy.csv".format(model_path), val_acc)
-        np.savetxt("{}_valid_loss.csv".format(model_path), val_loss)
-        np.savetxt("{}_iterations.csv".format(model_path), iterations)
+        if epoch % 4 == 0 or epoch == num_epochs-1:
+            np.savetxt("{}_train_accuracy.csv".format(model_path), train_acc)
+            np.savetxt("{}_train_loss.csv".format(model_path), train_loss)
+            np.savetxt("{}_valid_accuracy.csv".format(model_path), val_acc)
+            np.savetxt("{}_valid_loss.csv".format(model_path), val_loss)
+            np.savetxt("{}_iterations.csv".format(model_path), iterations)
 
     # Training complete
     print('Finished Training!')
@@ -156,10 +167,13 @@ def train_net(net, batch_size, learning_rate, num_epochs, sample_interval):
     elapsed_time = end_time - start_time
     print('Total time elapse: {:.2f} seconds'.format(elapsed_time))
 
-    return train_batch
+    return train_batch-1
 
 
-def plot_training_curve(model_path):
+def plot_training_curve(model_path, extra_path=None):
+    if extra_path is not None:
+        model_path = model_path + extra_path
+
     # Get batch count
     iteration = np.loadtxt("{}_iterations.csv".format(model_path))
 
@@ -188,46 +202,71 @@ def plot_training_curve(model_path):
 
 
 if __name__ == "__main__":
+    # Make the experiment directory if does not exist
+    if not os.path.exists(experiment):
+        os.makedirs(experiment)
+
+    # Parse command line arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument('--num_epochs', '-n', type=int, default=20, help="number of epochs for training")
+    parser.add_argument('--num_epochs', '-n', type=int, default=10, help="number of epochs for training")
     parser.add_argument('--batch_size', '-bs', type=int, default=32, help="batch size")
     parser.add_argument('--learning_rate', '-lr', type=float, default=0.001, help="Adam optimizer learning rate")
-    parser.add_argument('--sample_interval', type=int, default=1000, help="Save statistics and model checkpoint every N epochs")
-    parser.add_argument('--cnn', default='classifier', nargs='*', help="Specify the model architecture", required=True)
+    parser.add_argument('--sample_interval', type=int, default=500, help="Save statistics and model checkpoint every N epochs")
+    parser.add_argument('--cnn', default='classifier', nargs='*', type=int, help="Specify the model architecture", required=True)
     args = parser.parse_args()
 
     # Define model
-    if args.cnn[0] == 'classifier':
+    if args.cnn[0] == 0:
         if len(args.cnn) == 1:
             model = Classifier()
+            extra_path = '_default'
         else:
             model = Classifier(args.cnn[1], args.cnn[2], args.cnn[3], args.cnn[4], args.cnn[5])
-    elif args.cnn[0] == 'a':
+            extra_path = '_feature1_%d_feature2_%d_feature3_%d_hidden1_%d_hidden2_%d' % (args.cnn[1], args.cnn[2], args.cnn[3], args.cnn[4], args.cnn[5])
+    elif args.cnn[0] == 1:
         if len(args.cnn) == 1:
             model = ModelA()
+            extra_path = '_default'
         else:
             model = ModelA(args.cnn[1], args.cnn[2], args.cnn[3], args.cnn[4], args.cnn[5])
-    elif args.cnn[0] == 'b':
+            extra_path = '_feature1_%d_feature2_%d_feature3_%d_hidden1_%d_hidden2_%d' % (args.cnn[1], args.cnn[2], args.cnn[3], args.cnn[4], args.cnn[5])
+    elif args.cnn[0] == 2:
         if len(args.cnn) == 1:
             model = ModelB()
+            extra_path = '_default'
         else:
             model = ModelB(args.cnn[1], args.cnn[2], args.cnn[3], args.cnn[4])
-    elif args.cnn[0] == 'c':
+            extra_path = '_feature1_%d_feature2_%d_feature3_%d_hidden1_%d' % (args.cnn[1], args.cnn[2], args.cnn[3], args.cnn[4])
+    elif args.cnn[0] == 3:
         if len(args.cnn) == 1:
             model = ModelC()
+            extra_path = '_default'
         else:
             model = ModelC(args.cnn[1], args.cnn[2], args.cnn[3], args.cnn[4], args.cnn[5], args.cnn[6])
+            extra_path = '_feature1_%d_feature2_%d_feature3_%d_feature4_%d_hidden1_%d_hidden2_%d' % (args.cnn[1], args.cnn[2], args.cnn[3], args.cnn[4], args.cnn[5], args.cnn[6])
+    elif args.cnn[0] == 4:
+        if len(args.cnn) == 1:
+            model = ModelD()
+            extra_path = '_default'
+        else:
+            model = ModelD(args.cnn[1], args.cnn[2], args.cnn[3], args.cnn[4])
+            extra_path = '_feature1_%d_feature2_%d_feature3_%d_hidden_%d' % (args.cnn[1], args.cnn[2], args.cnn[3], args.cnn[4])
+    elif args.cnn[0] == 5:
+        model = FinalModel()
+        extra_path = 'final'
     else:
         print("Unsupported") 
         assert(0)
 
+
     if cuda:
+        print("Running with CUDA")
         model = model.cuda()
     
     # Train model
-    max_iter = train_net(model, args.batch_size, args.learning_rate, args.num_epochs, args.sample_interval)
+    max_iter = train_net(model, args.batch_size, args.learning_rate, args.num_epochs, args.sample_interval, extra_path)
 
     # Plot training curves
     model_path = get_model_name(model.name, args.batch_size, args.learning_rate, args.num_epochs, max_iter)
-    plot_training_curve(model_path)
+    plot_training_curve(model_path, extra_path)
 

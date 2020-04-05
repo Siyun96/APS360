@@ -26,7 +26,7 @@ class ModelC(nn.Module):
         # [8, 8, 100] => [6, 6, 100]
         self.conv4 = nn.Conv2d(feature3, feature4, 3)
 
-        self.fc1 = nn.Linear(6 * 6 * feature4 + 16 * 16 * feature2, hidden1)
+        self.fc1 = nn.Linear(6 * 6 * feature4 + 20 * 20 * feature2, hidden1)
         self.fc2 = nn.Linear(hidden1, hidden2)
         self.fc3 = nn.Linear(hidden2, 24)
 
@@ -42,7 +42,7 @@ class ModelC(nn.Module):
         x = F.relu(self.conv4(x))
 
         x = x.view(-1, 6 * 6 * self.feature4)            # flatten x
-        temp = temp.view(-1, 16 * 16 * self.feature2)    # flatten temp
+        temp = temp.view(-1, 20 * 20 * self.feature2)    # flatten temp
         x = torch.cat((x, temp), 1)            # double check, should be dimension 1
 
         x = F.relu(self.fc1(x))
