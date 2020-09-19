@@ -1,0 +1,366 @@
+
+1. Analyze hyperparameter results:
+    1.0. Default
+        Epoch 1, train accuracy 0.937500 validation accuracy 0.962872 | train loss 0.392274 validation loss 0.125560
+        Epoch 2, train accuracy 0.956250 validation accuracy 0.966136 | train loss 0.061306 validation loss 0.136960
+        Epoch 3, train accuracy 0.993750 validation accuracy 0.993013 | train loss 0.035819 validation loss 0.030283
+        Epoch 4, train accuracy 0.981250 validation accuracy 0.989341 | train loss 0.034027 validation loss 0.045102
+        Epoch 5, train accuracy 0.993750 validation accuracy 0.985516 | train loss 0.028073 validation loss 0.072916
+        Epoch 6, train accuracy 0.987500 validation accuracy 0.990820 | train loss 0.026506 validation loss 0.044466
+        Epoch 7, train accuracy 0.993750 validation accuracy 0.990820 | train loss 0.020079 validation loss 0.049888
+        Epoch 8, train accuracy 0.993750 validation accuracy 0.995257 | train loss 0.025918 validation loss 0.033086
+        Epoch 9, train accuracy 1.000000 validation accuracy 0.992503 | train loss 0.021743 validation loss 0.053823
+        Epoch 10, train accuracy 0.993750 validation accuracy 0.994594 | train loss 0.023149 validation loss 0.036340
+
+    1.1. Effects of batch size
+    Smaller (16)
+        Epoch 1, train accuracy 0.950000 validation accuracy 0.982507 | train loss 0.320915 validation loss 0.063254
+        Epoch 2, train accuracy 0.981250 validation accuracy 0.990259 | train loss 0.065183 validation loss 0.043452
+        Epoch 3, train accuracy 0.993750 validation accuracy 0.989137 | train loss 0.047593 validation loss 0.048097
+        Epoch 4, train accuracy 1.000000 validation accuracy 0.983884 | train loss 0.043650 validation loss 0.093194
+        Epoch 5, train accuracy 1.000000 validation accuracy 0.986893 | train loss 0.040832 validation loss 0.087630
+        Epoch 6, train accuracy 0.993750 validation accuracy 0.988576 | train loss 0.038407 validation loss 0.086424
+        Epoch 7, train accuracy 1.000000 validation accuracy 0.990820 | train loss 0.045104 validation loss 0.065024
+        Epoch 8, train accuracy 0.993750 validation accuracy 0.992095 | train loss 0.026634 validation loss 0.055833
+        Epoch 9, train accuracy 0.987500 validation accuracy 0.991636 | train loss 0.035067 validation loss 0.064149
+        Epoch 10, train accuracy 0.993750 validation accuracy 0.994186 | train loss 0.041368 validation loss 0.049111
+        Epoch 11, train accuracy 0.981250 validation accuracy 0.991381 | train loss 0.034797 validation loss 0.116417
+        Epoch 12, train accuracy 0.993750 validation accuracy 0.987913 | train loss 0.031652 validation loss 0.127654
+        Epoch 13, train accuracy 1.000000 validation accuracy 0.994798 | train loss 0.037371 validation loss 0.053340
+        Epoch 14, train accuracy 0.993750 validation accuracy 0.987046 | train loss 0.036361 validation loss 0.140385
+        Epoch 15, train accuracy 1.000000 validation accuracy 0.968941 | train loss 0.046284 validation loss 0.273092
+        Epoch 16, train accuracy 1.000000 validation accuracy 0.996124 | train loss 0.035073 validation loss 0.055847
+        Epoch 17, train accuracy 0.987500 validation accuracy 0.987964 | train loss 0.041235 validation loss 0.116268
+        Epoch 18, train accuracy 0.993750 validation accuracy 0.979039 | train loss 0.047203 validation loss 0.197966
+        Epoch 19, train accuracy 1.000000 validation accuracy 0.992605 | train loss 0.027297 validation loss 0.138723
+        Epoch 20, train accuracy 1.000000 validation accuracy 0.993625 | train loss 0.046887 validation loss 0.109425
+
+    Larger (64)
+        Epoch 1, train accuracy 0.958333 validation accuracy 0.962260 | train loss 0.453076 validation loss 0.120969
+        Epoch 2, train accuracy 0.984375 validation accuracy 0.987403 | train loss 0.054310 validation loss 0.048548
+        Epoch 3, train accuracy 0.994792 validation accuracy 0.991534 | train loss 0.032450 validation loss 0.034126
+        Epoch 4, train accuracy 0.968750 validation accuracy 0.984241 | train loss 0.026986 validation loss 0.067722
+        Epoch 5, train accuracy 0.994792 validation accuracy 0.992605 | train loss 0.019622 validation loss 0.031040
+        Epoch 6, train accuracy 0.994792 validation accuracy 0.987862 | train loss 0.018228 validation loss 0.053809
+        Epoch 7, train accuracy 1.000000 validation accuracy 0.994135 | train loss 0.016037 validation loss 0.033134
+        Epoch 8, train accuracy 1.000000 validation accuracy 0.989902 | train loss 0.010968 validation loss 0.050501
+        Epoch 9, train accuracy 0.989583 validation accuracy 0.996379 | train loss 0.016583 validation loss 0.021902
+        Epoch 10, train accuracy 0.994792 validation accuracy 0.988321 | train loss 0.018624 validation loss 0.055649
+        Epoch 11, train accuracy 1.000000 validation accuracy 0.991330 | train loss 0.010260 validation loss 0.055481
+        Epoch 12, train accuracy 0.994792 validation accuracy 0.990157 | train loss 0.013352 validation loss 0.090417
+        Epoch 13, train accuracy 1.000000 validation accuracy 0.996838 | train loss 0.013006 validation loss 0.023166
+        Epoch 14, train accuracy 1.000000 validation accuracy 0.993778 | train loss 0.007864 validation loss 0.044038
+        Epoch 15, train accuracy 1.000000 validation accuracy 0.994237 | train loss 0.009487 validation loss 0.055220
+        Epoch 16, train accuracy 1.000000 validation accuracy 0.994645 | train loss 0.018029 validation loss 0.049297
+        Epoch 17, train accuracy 1.000000 validation accuracy 0.996430 | train loss 0.009035 validation loss 0.031775
+        Epoch 18, train accuracy 1.000000 validation accuracy 0.990361 | train loss 0.014944 validation loss 0.071762
+        Epoch 19, train accuracy 1.000000 validation accuracy 0.997093 | train loss 0.003073 validation loss 0.038523
+        Epoch 20, train accuracy 0.994792 validation accuracy 0.994441 | train loss 0.015513 validation loss 0.031682
+
+
+    1.2. Effects of learning rate
+    Smaller (0.0005)
+        Epoch 1, train accuracy 0.937500 validation accuracy 0.969349 | train loss 0.451804 validation loss 0.103204
+        Epoch 2, train accuracy 0.975000 validation accuracy 0.978478 | train loss 0.055212 validation loss 0.075731
+        Epoch 3, train accuracy 0.993750 validation accuracy 0.993268 | train loss 0.028906 validation loss 0.027184
+        Epoch 4, train accuracy 0.981250 validation accuracy 0.985414 | train loss 0.023273 validation loss 0.056005
+        Epoch 5, train accuracy 1.000000 validation accuracy 0.994798 | train loss 0.016959 validation loss 0.020968
+        Epoch 6, train accuracy 1.000000 validation accuracy 0.989596 | train loss 0.013118 validation loss 0.038240
+        Epoch 7, train accuracy 1.000000 validation accuracy 0.993217 | train loss 0.012651 validation loss 0.032458
+        Epoch 8, train accuracy 1.000000 validation accuracy 0.994288 | train loss 0.012119 validation loss 0.025137
+        Epoch 9, train accuracy 1.000000 validation accuracy 0.993880 | train loss 0.009459 validation loss 0.033429
+        Epoch 10, train accuracy 1.000000 validation accuracy 0.996124 | train loss 0.011429 validation loss 0.025897
+        Epoch 11, train accuracy 1.000000 validation accuracy 0.995563 | train loss 0.007489 validation loss 0.023840
+        Epoch 12, train accuracy 1.000000 validation accuracy 0.996277 | train loss 0.009941 validation loss 0.025015
+        Epoch 13, train accuracy 1.000000 validation accuracy 0.996685 | train loss 0.005975 validation loss 0.020795
+        Epoch 14, train accuracy 0.987500 validation accuracy 0.995002 | train loss 0.008140 validation loss 0.034330
+        Epoch 15, train accuracy 1.000000 validation accuracy 0.991993 | train loss 0.006886 validation loss 0.059189
+        Epoch 16, train accuracy 1.000000 validation accuracy 0.995206 | train loss 0.009376 validation loss 0.030356
+        Epoch 17, train accuracy 1.000000 validation accuracy 0.996073 | train loss 0.007259 validation loss 0.032469
+        Epoch 18, train accuracy 0.993750 validation accuracy 0.996991 | train loss 0.009405 validation loss 0.022602
+        Epoch 19, train accuracy 1.000000 validation accuracy 0.994900 | train loss 0.004792 validation loss 0.029638
+        Epoch 20, train accuracy 1.000000 validation accuracy 0.997093 | train loss 0.009388 validation loss 0.022581
+
+    Larger (0.005)
+        Epoch 1, train accuracy 0.156250 validation accuracy 0.142187 | train loss 2.838818 validation loss 2.773070
+        Epoch 2, train accuracy 0.637500 validation accuracy 0.801459 | train loss 1.348655 validation loss 0.623674
+        Epoch 3, train accuracy 0.818750 validation accuracy 0.868319 | train loss 0.542792 validation loss 0.459712
+        Epoch 4, train accuracy 0.875000 validation accuracy 0.891320 | train loss 0.393403 validation loss 0.385897
+        Epoch 5, train accuracy 0.956250 validation accuracy 0.917432 | train loss 0.303474 validation loss 0.388062
+        Epoch 6, train accuracy 0.937500 validation accuracy 0.924164 | train loss 0.271454 validation loss 0.365702
+        Epoch 7, train accuracy 0.931250 validation accuracy 0.945889 | train loss 0.215563 validation loss 0.265054
+        Epoch 8, train accuracy 0.937500 validation accuracy 0.935843 | train loss 0.233575 validation loss 0.268265
+        Epoch 9, train accuracy 0.937500 validation accuracy 0.936200 | train loss 0.222885 validation loss 0.318979
+        Epoch 10, train accuracy 0.975000 validation accuracy 0.957262 | train loss 0.193272 validation loss 0.282091
+        Epoch 11, train accuracy 0.968750 validation accuracy 0.941095 | train loss 0.235642 validation loss 0.311984
+        Epoch 12, train accuracy 0.943750 validation accuracy 0.934823 | train loss 0.247263 validation loss 0.369474
+        Epoch 13, train accuracy 0.975000 validation accuracy 0.966187 | train loss 0.203108 validation loss 0.234910
+        Epoch 14, train accuracy 0.925000 validation accuracy 0.956956 | train loss 0.272819 validation loss 0.328875
+        Epoch 15, train accuracy 0.987500 validation accuracy 0.947827 | train loss 0.273029 validation loss 0.351765
+        Epoch 16, train accuracy 0.275000 validation accuracy 0.086597 | train loss 2.029859 validation loss 2.905038
+        Epoch 17, train accuracy 0.106250 validation accuracy 0.089759 | train loss 2.902367 validation loss 2.904462
+        Epoch 18, train accuracy 0.062500 validation accuracy 0.089759 | train loss 2.902263 validation loss 2.905361
+        Epoch 19, train accuracy 0.118750 validation accuracy 0.086597 | train loss 2.902193 validation loss 2.905836
+        Epoch 20, train accuracy 0.093750 validation accuracy 0.086597 | train loss 2.902113 validation loss 2.904704
+
+    1.3. Effects of number of feature maps
+    More feature maps in later stages (150)
+        Epoch 1, train accuracy 0.962500 validation accuracy 0.982558 | train loss 0.398429 validation loss 0.069639
+        Epoch 2, train accuracy 0.956250 validation accuracy 0.984598 | train loss 0.055899 validation loss 0.055810
+        Epoch 3, train accuracy 0.987500 validation accuracy 0.982864 | train loss 0.040416 validation loss 0.075794
+        Epoch 4, train accuracy 0.981250 validation accuracy 0.991942 | train loss 0.033120 validation loss 0.033152
+        Epoch 5, train accuracy 0.993750 validation accuracy 0.992605 | train loss 0.027351 validation loss 0.036591
+        Epoch 6, train accuracy 1.000000 validation accuracy 0.991687 | train loss 0.026906 validation loss 0.039764
+        Epoch 7, train accuracy 1.000000 validation accuracy 0.980671 | train loss 0.021837 validation loss 0.103505
+        Epoch 8, train accuracy 1.000000 validation accuracy 0.993268 | train loss 0.023411 validation loss 0.038759
+        Epoch 9, train accuracy 0.993750 validation accuracy 0.993064 | train loss 0.024235 validation loss 0.044309
+        Epoch 10, train accuracy 0.975000 validation accuracy 0.988729 | train loss 0.021755 validation loss 0.062052
+
+    More feature maps in first stage (100)
+        Epoch 1, train accuracy 0.925000 validation accuracy 0.953590 | train loss 0.533057 validation loss 0.146878
+        Epoch 2, train accuracy 0.981250 validation accuracy 0.981589 | train loss 0.067269 validation loss 0.068234
+        Epoch 3, train accuracy 0.981250 validation accuracy 0.987403 | train loss 0.047817 validation loss 0.050151
+        Epoch 4, train accuracy 0.981250 validation accuracy 0.989647 | train loss 0.034102 validation loss 0.044184
+        Epoch 5, train accuracy 1.000000 validation accuracy 0.989494 | train loss 0.029748 validation loss 0.049442
+        Epoch 6, train accuracy 0.981250 validation accuracy 0.992401 | train loss 0.024827 validation loss 0.036621
+        Epoch 7, train accuracy 0.962500 validation accuracy 0.991840 | train loss 0.026781 validation loss 0.041120
+        Epoch 8, train accuracy 1.000000 validation accuracy 0.991687 | train loss 0.022391 validation loss 0.052309
+        Epoch 9, train accuracy 0.987500 validation accuracy 0.995665 | train loss 0.024393 validation loss 0.031832
+        Epoch 10, train accuracy 1.000000 validation accuracy 0.993676 | train loss 0.017425 validation loss 0.041974
+
+    More feature maps in both stages (100, 150)
+        Epoch 1, train accuracy 0.931250 validation accuracy 0.959710 | train loss 0.397565 validation loss 0.141798
+        Epoch 2, train accuracy 0.987500 validation accuracy 0.986995 | train loss 0.062862 validation loss 0.052717
+        Epoch 3, train accuracy 0.987500 validation accuracy 0.992656 | train loss 0.038124 validation loss 0.030714
+        Epoch 4, train accuracy 0.975000 validation accuracy 0.990871 | train loss 0.031953 validation loss 0.036284
+        Epoch 5, train accuracy 1.000000 validation accuracy 0.977407 | train loss 0.026387 validation loss 0.112092
+        Epoch 6, train accuracy 1.000000 validation accuracy 0.994951 | train loss 0.028596 validation loss 0.025879
+        Epoch 7, train accuracy 1.000000 validation accuracy 0.992962 | train loss 0.022088 validation loss 0.037373
+        Epoch 8, train accuracy 0.993750 validation accuracy 0.994237 | train loss 0.020769 validation loss 0.027089
+        Epoch 9, train accuracy 1.000000 validation accuracy 0.993217 | train loss 0.023167 validation loss 0.050986
+        Epoch 10, train accuracy 0.993750 validation accuracy 0.995002 | train loss 0.015764 validation loss 0.033123
+
+    1.4. Effects of number of hidden units in fully connected layers
+    More hidden units (400)
+        Epoch 1, train accuracy 0.950000 validation accuracy 0.970369 | train loss 0.407522 validation loss 0.102261
+        Epoch 2, train accuracy 0.987500 validation accuracy 0.988219 | train loss 0.056648 validation loss 0.045539
+        Epoch 3, train accuracy 0.993750 validation accuracy 0.989596 | train loss 0.038039 validation loss 0.042285
+        Epoch 4, train accuracy 0.981250 validation accuracy 0.990820 | train loss 0.033463 validation loss 0.034159
+        Epoch 5, train accuracy 1.000000 validation accuracy 0.994594 | train loss 0.025646 validation loss 0.031457
+        Epoch 6, train accuracy 1.000000 validation accuracy 0.990310 | train loss 0.025091 validation loss 0.047230
+        Epoch 7, train accuracy 0.975000 validation accuracy 0.988474 | train loss 0.028229 validation loss 0.060275
+        Epoch 8, train accuracy 0.993750 validation accuracy 0.988423 | train loss 0.021074 validation loss 0.060807
+        Epoch 9, train accuracy 0.993750 validation accuracy 0.994900 | train loss 0.022388 validation loss 0.035411
+        Epoch 10, train accuracy 0.993750 validation accuracy 0.988321 | train loss 0.021955 validation loss 0.061020
+
+    Fewer hidden units (100)
+        Epoch 1, train accuracy 0.918750 validation accuracy 0.968584 | train loss 0.531061 validation loss 0.107733
+        Epoch 2, train accuracy 0.975000 validation accuracy 0.986536 | train loss 0.069543 validation loss 0.046647
+        Epoch 3, train accuracy 1.000000 validation accuracy 0.990973 | train loss 0.044446 validation loss 0.032070
+        Epoch 4, train accuracy 0.981250 validation accuracy 0.992809 | train loss 0.031915 validation loss 0.032422
+        Epoch 5, train accuracy 0.993750 validation accuracy 0.989290 | train loss 0.028027 validation loss 0.041422
+        Epoch 6, train accuracy 0.993750 validation accuracy 0.990922 | train loss 0.021442 validation loss 0.038043
+        Epoch 7, train accuracy 0.993750 validation accuracy 0.993472 | train loss 0.023425 validation loss 0.031448
+        Epoch 8, train accuracy 1.000000 validation accuracy 0.995002 | train loss 0.019824 validation loss 0.027270
+        Epoch 9, train accuracy 0.993750 validation accuracy 0.993370 | train loss 0.023977 validation loss 0.038985
+        Epoch 10, train accuracy 1.000000 validation accuracy 0.993472 | train loss 0.018327 validation loss 0.046404
+
+    1.5. No multi-scale CNN
+        Epoch 1, train accuracy 0.831250 validation accuracy 0.967870 | train loss 0.725839 validation loss 0.111940
+        Epoch 2, train accuracy 0.956250 validation accuracy 0.989647 | train loss 0.070030 validation loss 0.035678
+        Epoch 3, train accuracy 0.993750 validation accuracy 0.983884 | train loss 0.039808 validation loss 0.060177
+        Epoch 4, train accuracy 0.975000 validation accuracy 0.987301 | train loss 0.031636 validation loss 0.051808
+        Epoch 5, train accuracy 0.987500 validation accuracy 0.993370 | train loss 0.028823 validation loss 0.033952
+        Epoch 6, train accuracy 0.975000 validation accuracy 0.989494 | train loss 0.021345 validation loss 0.043005
+        Epoch 7, train accuracy 0.993750 validation accuracy 0.994288 | train loss 0.022330 validation loss 0.026378
+        Epoch 8, train accuracy 0.993750 validation accuracy 0.993829 | train loss 0.017272 validation loss 0.040620
+        Epoch 9, train accuracy 1.000000 validation accuracy 0.996328 | train loss 0.021838 validation loss 0.021549
+        Epoch 10, train accuracy 1.000000 validation accuracy 0.991840 | train loss 0.019181 validation loss 0.049505
+        Epoch 11, train accuracy 1.000000 validation accuracy 0.989596 | train loss 0.017371 validation loss 0.085948
+        Epoch 12, train accuracy 0.987500 validation accuracy 0.992299 | train loss 0.017792 validation loss 0.037853
+        Epoch 13, train accuracy 1.000000 validation accuracy 0.995665 | train loss 0.018288 validation loss 0.032138
+        Epoch 14, train accuracy 1.000000 validation accuracy 0.996481 | train loss 0.014777 validation loss 0.024976
+        Epoch 15, train accuracy 0.993750 validation accuracy 0.987658 | train loss 0.021621 validation loss 0.073389
+        Epoch 16, train accuracy 1.000000 validation accuracy 0.994441 | train loss 0.013821 validation loss 0.032483
+        Epoch 17, train accuracy 1.000000 validation accuracy 0.991993 | train loss 0.015483 validation loss 0.066457
+        Epoch 18, train accuracy 1.000000 validation accuracy 0.994186 | train loss 0.022135 validation loss 0.057442
+        Epoch 19, train accuracy 0.993750 validation accuracy 0.995818 | train loss 0.017308 validation loss 0.038791
+        Epoch 20, train accuracy 1.000000 validation accuracy 0.992350 | train loss 0.015998 validation loss 0.063649
+
+    1.6. Remove one FC layer
+        Epoch 1, train accuracy 0.968750 validation accuracy 0.976336 | train loss 0.271164 validation loss 0.098908
+        Epoch 2, train accuracy 0.962500 validation accuracy 0.980518 | train loss 0.053372 validation loss 0.083966
+        Epoch 3, train accuracy 0.993750 validation accuracy 0.991483 | train loss 0.032862 validation loss 0.035285
+        Epoch 4, train accuracy 0.993750 validation accuracy 0.991942 | train loss 0.025949 validation loss 0.046255
+        Epoch 5, train accuracy 1.000000 validation accuracy 0.991075 | train loss 0.025395 validation loss 0.043589
+        Epoch 6, train accuracy 0.993750 validation accuracy 0.991585 | train loss 0.019924 validation loss 0.034941
+        Epoch 7, train accuracy 0.993750 validation accuracy 0.973225 | train loss 0.019772 validation loss 0.166399
+        Epoch 8, train accuracy 1.000000 validation accuracy 0.994441 | train loss 0.022583 validation loss 0.039892
+        Epoch 9, train accuracy 0.987500 validation accuracy 0.989596 | train loss 0.022772 validation loss 0.082502
+        Epoch 10, train accuracy 1.000000 validation accuracy 0.992554 | train loss 0.014871 validation loss 0.075979
+        Epoch 11, train accuracy 0.987500 validation accuracy 0.995665 | train loss 0.022403 validation loss 0.038799
+        Epoch 12, train accuracy 1.000000 validation accuracy 0.987811 | train loss 0.017535 validation loss 0.114644
+        Epoch 13, train accuracy 1.000000 validation accuracy 0.992095 | train loss 0.018254 validation loss 0.093418
+        Epoch 14, train accuracy 1.000000 validation accuracy 0.993982 | train loss 0.020844 validation loss 0.083970
+        Epoch 15, train accuracy 0.987500 validation accuracy 0.995257 | train loss 0.021181 validation loss 0.067849
+        Epoch 16, train accuracy 1.000000 validation accuracy 0.994798 | train loss 0.019348 validation loss 0.081201
+        Epoch 17, train accuracy 1.000000 validation accuracy 0.995614 | train loss 0.020741 validation loss 0.086129
+        Epoch 18, train accuracy 0.993750 validation accuracy 0.992860 | train loss 0.022071 validation loss 0.114400
+        Epoch 19, train accuracy 1.000000 validation accuracy 0.992911 | train loss 0.024718 validation loss 0.126983
+        Epoch 20, train accuracy 1.000000 validation accuracy 0.994237 | train loss 0.025780 validation loss 0.124536
+
+    1.7. Add extra convolution layer in 2nd stage
+        Epoch 1, train accuracy 0.943750 validation accuracy 0.955630 | train loss 0.342593 validation loss 0.141508
+        Epoch 2, train accuracy 0.993750 validation accuracy 0.994237 | train loss 0.042542 validation loss 0.022868
+        Epoch 3, train accuracy 0.993750 validation accuracy 0.995257 | train loss 0.027735 validation loss 0.018907
+        Epoch 4, train accuracy 0.993750 validation accuracy 0.993421 | train loss 0.021424 validation loss 0.025097
+        Epoch 5, train accuracy 1.000000 validation accuracy 0.993727 | train loss 0.019097 validation loss 0.029049
+        Epoch 6, train accuracy 1.000000 validation accuracy 0.995257 | train loss 0.016589 validation loss 0.021722
+        Epoch 7, train accuracy 0.987500 validation accuracy 0.995767 | train loss 0.013651 validation loss 0.025374
+        Epoch 8, train accuracy 1.000000 validation accuracy 0.994798 | train loss 0.015924 validation loss 0.031999
+        Epoch 9, train accuracy 1.000000 validation accuracy 0.996736 | train loss 0.011867 validation loss 0.016633
+        Epoch 10, train accuracy 0.993750 validation accuracy 0.991891 | train loss 0.017039 validation loss 0.048095
+
+    1.8. Other learning rates
+    0.001:
+        Epoch 1, train accuracy 0.962500 validation accuracy 0.964453 | train loss 0.295766 validation loss 0.119621
+        Epoch 2, train accuracy 0.968750 validation accuracy 0.990871 | train loss 0.050693 validation loss 0.039443
+        Epoch 3, train accuracy 0.975000 validation accuracy 0.994645 | train loss 0.034837 validation loss 0.029249
+        Epoch 4, train accuracy 0.981250 validation accuracy 0.991738 | train loss 0.032134 validation loss 0.041448
+        Epoch 5, train accuracy 1.000000 validation accuracy 0.982711 | train loss 0.026822 validation loss 0.104233
+        Epoch 6, train accuracy 0.981250 validation accuracy 0.990820 | train loss 0.025586 validation loss 0.058261
+        Epoch 7, train accuracy 0.993750 validation accuracy 0.990718 | train loss 0.021068 validation loss 0.048543
+        Epoch 8, train accuracy 0.993750 validation accuracy 0.993013 | train loss 0.022360 validation loss 0.052749
+        Epoch 9, train accuracy 1.000000 validation accuracy 0.988831 | train loss 0.024212 validation loss 0.103138
+        Epoch 10, train accuracy 0.993750 validation accuracy 0.996073 | train loss 0.017619 validation loss 0.035618
+        Epoch 11, train accuracy 0.987500 validation accuracy 0.985873 | train loss 0.021589 validation loss 0.105530
+        Epoch 12, train accuracy 1.000000 validation accuracy 0.992248 | train loss 0.021783 validation loss 0.085701
+        Epoch 13, train accuracy 1.000000 validation accuracy 0.992350 | train loss 0.016074 validation loss 0.097640
+        Epoch 14, train accuracy 0.993750 validation accuracy 0.991891 | train loss 0.023448 validation loss 0.074187
+        Epoch 15, train accuracy 1.000000 validation accuracy 0.995002 | train loss 0.018793 validation loss 0.086152
+
+    0.002:
+        Epoch 1, train accuracy 0.931250 validation accuracy 0.974755 | train loss 0.390634 validation loss 0.088000
+        Epoch 2, train accuracy 0.975000 validation accuracy 0.975163 | train loss 0.073175 validation loss 0.089205
+        Epoch 3, train accuracy 0.968750 validation accuracy 0.978937 | train loss 0.061049 validation loss 0.123051
+        Epoch 4, train accuracy 0.987500 validation accuracy 0.986332 | train loss 0.051173 validation loss 0.070659
+        Epoch 5, train accuracy 0.993750 validation accuracy 0.987658 | train loss 0.066334 validation loss 0.083477
+        Epoch 6, train accuracy 0.993750 validation accuracy 0.974959 | train loss 0.053269 validation loss 0.195375
+        Epoch 7, train accuracy 0.993750 validation accuracy 0.988729 | train loss 0.065882 validation loss 0.076337
+        Epoch 8, train accuracy 0.987500 validation accuracy 0.988219 | train loss 0.048045 validation loss 0.133992
+        Epoch 9, train accuracy 1.000000 validation accuracy 0.992146 | train loss 0.053187 validation loss 0.118586
+        Epoch 10, train accuracy 0.993750 validation accuracy 0.987148 | train loss 0.070155 validation loss 0.192078
+        Epoch 11, train accuracy 0.993750 validation accuracy 0.992758 | train loss 0.072942 validation loss 0.136171
+        Epoch 12, train accuracy 0.993750 validation accuracy 0.981997 | train loss 0.081520 validation loss 0.313785
+        Epoch 13, train accuracy 0.993750 validation accuracy 0.990769 | train loss 0.085035 validation loss 0.253063
+        Epoch 14, train accuracy 0.993750 validation accuracy 0.990004 | train loss 0.076611 validation loss 0.288429
+        Epoch 15, train accuracy 0.981250 validation accuracy 0.991228 | train loss 0.089335 validation loss 0.220183
+
+    0.003:
+        Epoch 1, train accuracy 0.937500 validation accuracy 0.952570 | train loss 0.397542 validation loss 0.158018
+        Epoch 2, train accuracy 0.975000 validation accuracy 0.981130 | train loss 0.100036 validation loss 0.077242
+        Epoch 3, train accuracy 0.981250 validation accuracy 0.975775 | train loss 0.112761 validation loss 0.127739
+        Epoch 4, train accuracy 0.968750 validation accuracy 0.937831 | train loss 0.086230 validation loss 0.351202
+        Epoch 5, train accuracy 0.993750 validation accuracy 0.984292 | train loss 0.097997 validation loss 0.108869
+        Epoch 6, train accuracy 0.987500 validation accuracy 0.949969 | train loss 0.099001 validation loss 0.367159
+        Epoch 7, train accuracy 0.975000 validation accuracy 0.986077 | train loss 0.100832 validation loss 0.150177
+        Epoch 8, train accuracy 0.981250 validation accuracy 0.981385 | train loss 0.095987 validation loss 0.207873
+        Epoch 9, train accuracy 0.950000 validation accuracy 0.976489 | train loss 0.124111 validation loss 0.229532
+        Epoch 10, train accuracy 1.000000 validation accuracy 0.987097 | train loss 0.085129 validation loss 0.131100
+        Epoch 11, train accuracy 0.993750 validation accuracy 0.991075 | train loss 0.126761 validation loss 0.121624
+        Epoch 12, train accuracy 0.993750 validation accuracy 0.968533 | train loss 0.145911 validation loss 0.471238
+        Epoch 13, train accuracy 1.000000 validation accuracy 0.986842 | train loss 0.119429 validation loss 0.290253
+        Epoch 14, train accuracy 0.987500 validation accuracy 0.979447 | train loss 0.149800 validation loss 0.398010
+        Epoch 15, train accuracy 0.993750 validation accuracy 0.981028 | train loss 0.111215 validation loss 0.379267
+
+    1.9. Fewer features
+    25 50 50
+        Epoch 1, train accuracy 0.968750 validation accuracy 0.972868 | train loss 0.325457 validation loss 0.098633
+        Epoch 2, train accuracy 0.981250 validation accuracy 0.984190 | train loss 0.050372 validation loss 0.058993
+        Epoch 3, train accuracy 0.981250 validation accuracy 0.992197 | train loss 0.030808 validation loss 0.037344
+        Epoch 4, train accuracy 0.975000 validation accuracy 0.989545 | train loss 0.027633 validation loss 0.048525
+        Epoch 5, train accuracy 0.987500 validation accuracy 0.972001 | train loss 0.020849 validation loss 0.107694
+        Epoch 6, train accuracy 1.000000 validation accuracy 0.990871 | train loss 0.022813 validation loss 0.057155
+        Epoch 7, train accuracy 0.981250 validation accuracy 0.993421 | train loss 0.023175 validation loss 0.038467
+        Epoch 8, train accuracy 1.000000 validation accuracy 0.994747 | train loss 0.009088 validation loss 0.040690
+        Epoch 9, train accuracy 0.987500 validation accuracy 0.993319 | train loss 0.029967 validation loss 0.050327
+        Epoch 10, train accuracy 0.993750 validation accuracy 0.994747 | train loss 0.022491 validation loss 0.050254
+        Epoch 11, train accuracy 1.000000 validation accuracy 0.991381 | train loss 0.017054 validation loss 0.060554
+        Epoch 12, train accuracy 1.000000 validation accuracy 0.991891 | train loss 0.025093 validation loss 0.073331
+        Epoch 13, train accuracy 0.993750 validation accuracy 0.992656 | train loss 0.012585 validation loss 0.088974
+        Epoch 14, train accuracy 1.000000 validation accuracy 0.993574 | train loss 0.026154 validation loss 0.053608
+        Epoch 15, train accuracy 1.000000 validation accuracy 0.994339 | train loss 0.014972 validation loss 0.055096
+
+    30 60 60
+        Epoch 1, train accuracy 0.950000 validation accuracy 0.975877 | train loss 0.288873 validation loss 0.087379
+        Epoch 2, train accuracy 0.981250 validation accuracy 0.966493 | train loss 0.044456 validation loss 0.135797
+        Epoch 3, train accuracy 0.987500 validation accuracy 0.992350 | train loss 0.039049 validation loss 0.032209
+        Epoch 4, train accuracy 0.981250 validation accuracy 0.988168 | train loss 0.023559 validation loss 0.047866
+        Epoch 5, train accuracy 1.000000 validation accuracy 0.991330 | train loss 0.025331 validation loss 0.043450
+        Epoch 6, train accuracy 0.993750 validation accuracy 0.986485 | train loss 0.020600 validation loss 0.075274
+        Epoch 7, train accuracy 0.993750 validation accuracy 0.993013 | train loss 0.017416 validation loss 0.048785
+        Epoch 8, train accuracy 1.000000 validation accuracy 0.989188 | train loss 0.021819 validation loss 0.083407
+        Epoch 9, train accuracy 1.000000 validation accuracy 0.984292 | train loss 0.022379 validation loss 0.116670
+        Epoch 10, train accuracy 1.000000 validation accuracy 0.991942 | train loss 0.022451 validation loss 0.094546
+        Epoch 11, train accuracy 1.000000 validation accuracy 0.993217 | train loss 0.024099 validation loss 0.097419
+        Epoch 12, train accuracy 1.000000 validation accuracy 0.994951 | train loss 0.016678 validation loss 0.067520
+        Epoch 13, train accuracy 1.000000 validation accuracy 0.993880 | train loss 0.020602 validation loss 0.085040
+        Epoch 14, train accuracy 0.993750 validation accuracy 0.993064 | train loss 0.020209 validation loss 0.108383
+        Epoch 15, train accuracy 1.000000 validation accuracy 0.994084 | train loss 0.024213 validation loss 0.092115
+
+    35 70 70
+        Epoch 1, train accuracy 0.943750 validation accuracy 0.982711 | train loss 0.324407 validation loss 0.067580
+        Epoch 2, train accuracy 0.975000 validation accuracy 0.989698 | train loss 0.049468 validation loss 0.036716
+        Epoch 3, train accuracy 0.993750 validation accuracy 0.992248 | train loss 0.032672 validation loss 0.039461
+        Epoch 4, train accuracy 0.981250 validation accuracy 0.993166 | train loss 0.030348 validation loss 0.031681
+        Epoch 5, train accuracy 0.993750 validation accuracy 0.988525 | train loss 0.021603 validation loss 0.054768
+        Epoch 6, train accuracy 0.993750 validation accuracy 0.989086 | train loss 0.023227 validation loss 0.054416
+        Epoch 7, train accuracy 1.000000 validation accuracy 0.992044 | train loss 0.020366 validation loss 0.053674
+        Epoch 8, train accuracy 0.993750 validation accuracy 0.993829 | train loss 0.019721 validation loss 0.035677
+        Epoch 9, train accuracy 0.987500 validation accuracy 0.990055 | train loss 0.019951 validation loss 0.069704
+        Epoch 10, train accuracy 0.993750 validation accuracy 0.995359 | train loss 0.024044 validation loss 0.038914
+        Epoch 11, train accuracy 1.000000 validation accuracy 0.993421 | train loss 0.013462 validation loss 0.057184
+        Epoch 12, train accuracy 1.000000 validation accuracy 0.994186 | train loss 0.027822 validation loss 0.061822
+        Epoch 13, train accuracy 1.000000 validation accuracy 0.992707 | train loss 0.024656 validation loss 0.063777
+        Epoch 14, train accuracy 1.000000 validation accuracy 0.994084 | train loss 0.018075 validation loss 0.077186
+        Epoch 15, train accuracy 1.000000 validation accuracy 0.994594 | train loss 0.026902 validation loss 0.075970
+
+2. Choose best model and test on test set:
+    2.0. Final model
+        Epoch 1, train accuracy 0.956250 validation accuracy 0.977101 | train loss 0.318608 validation loss 0.078063
+        Epoch 2, train accuracy 0.993750 validation accuracy 0.992911 | train loss 0.048247 validation loss 0.031226
+        Epoch 3, train accuracy 0.987500 validation accuracy 0.988729 | train loss 0.034409 validation loss 0.042761
+        Epoch 4, train accuracy 0.993750 validation accuracy 0.985924 | train loss 0.026328 validation loss 0.060855
+        Epoch 5, train accuracy 1.000000 validation accuracy 0.982813 | train loss 0.021624 validation loss 0.078880
+
+    2.1. Reason for choosing the model
+    2.2. Report loss/accuracy on train/valid/test + new data collected by Nancy
+    2.3. Script for running test set --> for demonstration
+        - test.py
+    2.4. Analyze failed classifications --> provide some reasoning
+        
+
+3. Convolution kernel visualization:
+    3.1. Visualize activation at different convolution stage
+    3.2. Save image for presentation and report
+
+4. Add extra class for "unknown" signs:
+    4.1. Choose threshold
+    4.2. Test on testset and new data
+
+
+
+Unsure image 0, top three: 11 (0.559), 1 (0.359), 15 (0.036)
+Unsure image 1, top three: 21 (0.575), 6 (0.202), 1 (0.104)
+Unsure image 2, top three: 2 (0.519), 19 (0.360), 18 (0.113)
+Unsure image 3, top three: 19 (0.483), 2 (0.384), 18 (0.132)
+Unsure image 4, top three: 18 (0.590), 2 (0.316), 19 (0.090)
+Unsure image 5, top three: 19 (0.695), 3 (0.305), 22 (0.000)
+Unsure image 6, top three: 22 (0.400), 19 (0.326), 3 (0.267)
+Unsure image 7, top three: 3 (0.572), 19 (0.425), 22 (0.003)
+Unsure image 8, top three: 19 (0.563), 3 (0.433), 22 (0.003)
+Unsure image 9, top three: 22 (0.497), 19 (0.295), 3 (0.206)
+Unsure image 10, top three: 22 (0.436), 19 (0.253), 15 (0.158)
+Unsure image 11, top three: 9 (0.591), 4 (0.365), 0 (0.043)
+Unsure image 12, top three: 7 (0.560), 4 (0.440), 8 (0.000)
+Unsure image 13, top three: 7 (0.501), 4 (0.499), 6 (0.000)

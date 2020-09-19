@@ -1,0 +1,88 @@
+Default hyperparameters:
+    - Best validation accuracy and validation loss: Epoch 3, train accuracy 0.993750 validation accuracy 0.993013 | train loss 0.035819 validation loss 0.030283
+    Afterwards, there is both increase in validation loss and validation accuracy
+
+1.1. Effects of batch size
+    Smaller batch size:
+        - Best validation accuracy and validation loss: Epoch 2, train accuracy 0.981250 validation accuracy 0.990259 | train loss 0.065183 validation loss 0.043452
+        Afterwards, training loss continue to decrease but validation loss is much larger (2-3x)
+        - Slightly lower training and validation accuracy, although both losses are larger than default
+
+    Larger batch size:
+        - Best validation accuracy and validation loss: Epoch 3, train accuracy 0.994792 validation accuracy 0.991534 | train loss 0.032450 validation loss 0.034126
+
+
+    Conclusion: The effects of batch size is rather small on the model accuracy and loss. Keep the default batch size.
+
+1.2. Effects of learning rate
+    Smaller learning rate:
+        - Slower learning but the model quickly overfits on the training set. The best model is Epoch 3, train accuracy 0.993750 validation accuracy 0.993268 | train loss 0.028906 validation loss 0.027184
+        - The model performance in terms of accuracy is very similar to the default learning rate, but the model has much smaller training and validation losses. This could lead to poor generalization on test data
+    
+    Larger learning rate:
+        - The model converges much slower, probably because of the large weight updates during each iteration. The model shows comparable performance to the default hyperparameters only after 10 epochs.
+        - The performance is much worse (97.5% vs 99%). After 16 epochs, the model actually performed significantly worse (<10% accuracy on training and validation).
+        - This may be explained by the fact that large weight updates could cause the optimizer to jump out of a local/global minimum into another trough.
+
+    Conclusion:
+        - Larger learning rate tends to have more aggressive updates but not necessarily leads to better performance. Smaller learning rate explores the manifold slower but no significant benefits have been observed. The default learning rate seems appropriate.
+    
+1.3. Effects of number of feature maps:
+    More feature maps in later stages (150)
+        - Slightly slower convergence: Epoch 5, train accuracy 0.993750 validation accuracy 0.992605 | train loss 0.027351 validation loss 0.036591
+        - There are more trainable weights in this model and thus it is more difficult to train (i.e. requires more data and longer training time). The benefits in terms of accuracy and loss are miniscule. 
+    
+    More feature maps in first stage
+        - Epoch 4, train accuracy 0.981250 validation accuracy 0.989647 | train loss 0.034102 validation loss 0.044184
+        - Slightly lower accuracy comparing to default hyperparameters. Smaller training loss but higher validation loss. Could be a sign of overfitting as the model is more complex than default.
+    
+    Conclusion:
+        - More feature maps increase the model complexity, making the model harder to train. In this project, there is almost no gain. By the Razer Principle, the simpler default model is preferred.
+    
+1.4. Effects of number of hidden units in fully connected layers
+    More hidden units:
+        - Epoch 5, train accuracy 1.000000 validation accuracy 0.994594 | train loss 0.025646 validation loss 0.031457
+        - The model is more complex, takes longer to train, but performs better than default.
+        - Could lead to overfitting, but unclear.
+    
+    Fewer hidden units:
+        - Epoch 3, train accuracy 1.000000 validation accuracy 0.990973 | train loss 0.044446 validation loss 0.032070
+        - The model is less complex (has fewer learnable weights). Although similar training accuracy could be achieved, the validation accuracy couldn't reach as high as even the default model. This could suggest that the model doesn't have enough capacity to learn the classification task in the fully-connected layers.
+    
+    Conclusion:
+        - More hidden units allows for better capability of the model but also gives rise to overfitting. Fewer hidden units causes the model to under-represent the task at hand. Small increase in the number of hidden units may be considered.
+
+
+1.7. Add extra convolution layer in 2nd stage
+    - Epoch 3, train accuracy 0.993750 validation accuracy 0.995257 | train loss 0.027735 validation loss 0.018907
+    - Much faster convergence. Comparable performance metrics. However, more complex model.
+
+## The following experiments change model architecture, mostly to reduce the model complexity
+1.5. No multi-scale CNN
+    - Epoch 7, train accuracy 0.993750 validation accuracy 0.994288 | train loss 0.022330 validation loss 0.026378
+    - The CNN is much simpler as the input size to the first fully-connected layer is significantly smaller.
+    - The model takes more epochs to reach comparable performance as the default hyperparameters but also has lower costs. 
+    - This model architecture is preferred as it is simpler
+
+1.6. Remove one FC layer
+    - Epoch 3, train accuracy 0.993750 validation accuracy 0.991483 | train loss 0.032862 validation loss 0.035285
+    - The CNN is again much simpler. Comparable accuracy and losses are observed.
+    - This model architecture is preferred.
+
+
+1.8. Other learning rates
+    Also tried with 0.002, 0.003, performance isn't as good
+
+1.9. Fewer features
+    With 30 60 60 features, the model does not show sigificant degradation in performance. Will use that.
+
+Hyperparameter Tuning Conclusion
+    - Best performance accuracies is about 99.3%. Loss around 0.03.
+    - Comparing to the previous models, we will choose the following hyperparameters:
+        - batch size = 32
+        - learning rate = 0.0008
+        - 30 feature maps for first convolutional layer and 60 for the other two convolutional layers
+        - 2 fully connected layers: 200 hidden units
+        - 2 epochs (but can train up to 5)
+    - Best validation accuracy and validation loss:
+        Epoch 2, train accuracy 0.993750 validation accuracy 0.992911 | train loss 0.048247 validation loss 0.031226
